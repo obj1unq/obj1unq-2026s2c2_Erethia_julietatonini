@@ -4,8 +4,11 @@ object rolando {
 
     const hogar = castillo
 
+    const historialDeEncuentros = []
+
     
     method encontrarArtefacto(artefacto){
+        historialDeEncuentros.add(artefacto)
         if (mochila.size() < 2) {
             mochila.add(artefacto)
         }
@@ -30,6 +33,11 @@ object rolando {
 
     method poseeArtefacto(artefacto){
         return self.posesiones().contains(artefacto)
+    }
+
+
+    method historialDeEncuentros(){
+        return historialDeEncuentros
     }
     
 }

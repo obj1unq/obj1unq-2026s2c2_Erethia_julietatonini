@@ -57,4 +57,16 @@ describe "Erethia" {
         assert.equals([collar, espada, armadura], rolando.posesiones())
         assert.notThat(rolando.poseeArtefacto(libro))
     }
+
+
+
+    test "la historia de los encuentros con los artefactos de rolando" {
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(libro)
+        rolando.encontrarArtefacto(collar)
+        rolando.llegarAHogar()
+        rolando.encontrarArtefacto(armadura)
+        rolando.encontrarArtefacto(collar)
+        assert.equals([espada, libro, collar, armadura, collar], rolando.historialDeEncuentros())
+    }
 }
