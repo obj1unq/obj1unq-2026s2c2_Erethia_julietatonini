@@ -175,6 +175,15 @@ El poder de pelea de Rolando es el resultado de sumar su poder base (que inicial
 - Luego de la tercera batalla Rolando tiene 8 de base, la espada (aporta 8/2=4), la armadura 6 y el collar (3+3=6)
 
 
+
+
+
+
+
+
+
+
+
 ### 2.2 Libro de hechizos
 
 El libro de hechizos contiene varios hechizos, que se utilizan en un determinado orden y de a uno a la vez. Luego de utilizar un hechizo, éste se descarta. Existen estos 3 hechizos (pero podría haber más):

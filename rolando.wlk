@@ -27,7 +27,7 @@ object rolando {
 
 
     method posesiones(){
-        return hogar.almacen() + self.mochila()  
+        return hogar.almacen() + self.mochila()  // aca no se puede usar un addAll porque no se puede usar una orden en un return.
     }
 
 
