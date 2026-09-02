@@ -12,7 +12,7 @@ En la tierra de Erethia vive Rolando, quien va recolectando distintos artefactos
 - Una espada del destino
 - Un libro de hechizos 
 - Un collar divino
-- Una armadura de acero valyrio
+- Una armadura de acero valyrio 
 
 En su mochila, Rolando puede llevar hasta 2 artefactos a la vez, pero se espera que a medida que se desarrolle el juego pueda incrementar esa capacidad. Entonces, cada vez que Rolando se encuentra con un artefacto, analiza si tiene capacidad para llevarlo, y en caso de que sea posible, lo recolecta. 
 
@@ -33,6 +33,11 @@ Desarrollar **tests** siguiendo el ejemplo.
  3. Rolando encuentra el collar divino pero no lo recolecta, ya que tiene la espada y el libro encima y la capacidad de su mochila es de 2. 
  4. Si se consultan los artefactos que tiene Rolando se obtienen la espada del destino y el libro de hechizos.
    
+
+
+
+
+
 
 ### 1.2 Castillo de piedra
 
@@ -55,6 +60,12 @@ Desarrollar **tests** siguiendo el ejemplo.
  4. Rolando encuentra el collar divino (ahora si lo puede recolectar, ya que liberó espacio)
  3. Rolando llega al castillo de piedra nuevamente (deja el collar, con lo cual ahora el castillo tiene el collar, la espada y el libro)
  
+
+
+
+
+
+
 
 ### 1.3 Saber qué artefactos tiene Rolando
 
@@ -101,6 +112,22 @@ Si consultamos la historia de encuentro con los artefactos debería ser:
  3. collar divino
  4. armadura de acero valyrio
  5. collar divino (¡nuevamente!)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
 ## Parte 2 (mensajes con bloques) 

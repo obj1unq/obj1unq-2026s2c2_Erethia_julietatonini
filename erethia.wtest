@@ -1,3 +1,45 @@
 import rolando.*
 describe "Erethia" {
+
+    test "la mochila de rolando esta vacia" {
+        assert.that(rolando.mochila().size() == 0)
+    }
+
+    test "rolando encuentra un objeto y lo recolecta"{
+        rolando.encontrarArtefacto(espada)
+        assert.equals([espada], rolando.mochila())
+    }
+
+    test "rolando encuentra un objeto y no lo puede recolectar"{
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(collar)
+        assert.throwsException({rolando.encontrarArtefacto(armadura)})
+    }
+
+    test "rolando encuentra objetos"{
+        assert.that(rolando.mochila().size() == 0)
+        rolando.encontrarArtefacto(espada)
+        assert.equals([espada], rolando.mochila())
+        rolando.encontrarArtefacto(libro)
+        assert.equals([espada, libro], rolando.mochila())
+        rolando.encontrarArtefacto(collar)
+        assert.equals([espada, libro], rolando.mochila())
+    }
+
+
+
+    test "rolando encuentra objetos y llega a casa" {
+        rolando.encontrarArtefacto(espada)
+        assert.equals([espada], rolando.mochila())
+        rolando.encontrarArtefacto(libro)
+        assert.equals([espada, libro], rolando.mochila())
+        rolando.llegarAHogar(castillo)
+        assert.that(rolando.mochila().size() == 0)
+        assert.equals([espada, libro], castillo.almacen())
+        rolando.encontrarArtefacto(collar)
+        assert.equals([collar], rolando.mochila())
+        rolando.llegarAHogar(castillo)
+        assert.that(rolando.mochila().size() == 0)
+        assert.equals([espada, libro, collar], castillo.almacen())
+    }
 }
