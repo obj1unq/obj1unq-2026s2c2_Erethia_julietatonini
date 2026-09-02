@@ -86,6 +86,15 @@ Desarrollar **tests** siguiendo el ejemplo.
 #### Ejemplo: 
 
 Suponiendo que en el castillo están el collar y la espada, y que Rolando tiene la armadura. Entonces las posesiones de Rolando son 3: el collar, la espada y la armadura. El libro no está entre sus posesiones.
+
+
+
+
+
+
+
+
+
  
 ### 1.4 Saber la historia de los encuentros con los artefactos.
  

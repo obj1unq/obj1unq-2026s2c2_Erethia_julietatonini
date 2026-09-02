@@ -33,13 +33,28 @@ describe "Erethia" {
         assert.equals([espada], rolando.mochila())
         rolando.encontrarArtefacto(libro)
         assert.equals([espada, libro], rolando.mochila())
-        rolando.llegarAHogar(castillo)
+        rolando.llegarAHogar()
         assert.that(rolando.mochila().size() == 0)
         assert.equals([espada, libro], castillo.almacen())
         rolando.encontrarArtefacto(collar)
         assert.equals([collar], rolando.mochila())
-        rolando.llegarAHogar(castillo)
+        rolando.llegarAHogar()
         assert.that(rolando.mochila().size() == 0)
         assert.equals([espada, libro, collar], castillo.almacen())
+    }
+
+
+
+
+    test "los artefactos de rolando"{
+        rolando.encontrarArtefacto(collar)
+        rolando.encontrarArtefacto(espada)
+        rolando.llegarAHogar()
+        rolando.encontrarArtefacto(armadura)
+        assert.equals([collar, espada], castillo.almacen())
+        assert.equals([armadura], rolando.mochila())
+        assert.that(rolando.posesiones().size() == 3)
+        assert.equals([collar, espada, armadura], rolando.posesiones())
+        assert.notThat(rolando.poseeArtefacto(libro))
     }
 }
