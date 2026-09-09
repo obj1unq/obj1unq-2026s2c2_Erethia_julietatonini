@@ -62,6 +62,9 @@ object rolando {
     method pelear(){
         poderBase += 1
         mochila.forEach({artefacto => artefacto.incrementarUsos()}) 
+        if (self.poseeArtefactoEncima(libro)) {
+            libro.eliminarHechizo()
+        }
     //    batallasPeleadas += 1    
     }
 
@@ -74,7 +77,24 @@ object rolando {
     method capacidadMochila(capacidad){
         capacidadMochila = capacidad
     }
+
+
+    method artefactoMasPoderoso(){
+        return self.posesionesHogar().max({artefacto => artefacto.poderPelea(self)})
+    } 
+
+
+    method posesionesHogar(){
+        return hogar.almacen()
+    } 
+
+
+    method poseeArtefactoEncima(artefacto){
+        return self.mochila().contains(artefacto)
+    }
+
 }
+
 
 
 
@@ -144,7 +164,7 @@ object armadura {
 
     var vecesUsado = 0                     // a la armadura no le importa cuantas veces fue usada, no se desgasta, pero el metodo de rolando pelar() incrementa en 1 las veces que el artefacto fue usadao, entonces asumo que este metodo tiene que estar aca, o si no lo pongo no hace nada? (y no rompe). RESPUESTA: Sí, rompe. Es comun a todos los objetos, asi que hay que ponerlo.
 
-    method poderPelea(pesonaje){          
+    method poderPelea(personaje){          
         return 6
     }
 
@@ -163,13 +183,78 @@ object armadura {
 
 
 
+
 object libro {
 
+    const hechizos = []     // tengo que hacer esto despues: Luego de utilizar un hechizo, éste se descarta.
+
+    var vecesUsado = 0  
+
+
+    method poderPelea(personaje){          
+        if (hechizos.isEmpty()) {
+            return 0
+        } else {
+            return hechizos.first().poderPelea(personaje)  
+        }
+    }
+
+
+    method vecesUsado(){
+        return vecesUsado
+    }
+
+
+    method incrementarUsos(){
+        vecesUsado += 1
+    }
+
+
+    method hechizos(){
+        return hechizos
+    }
+
+
+    method eliminarHechizo(){
+        if (not hechizos.isEmpty()) {
+            hechizos.remove(hechizos.first())
+        }
+    }
 }
 
 
 
 
+
+object bendicion {
+
+    var poderPelea = 4
+
+
+    method poderPelea(personaje){
+        return poderPelea
+    }
+}
+
+
+
+
+object invisibilidad {
+
+    method poderPelea(personaje){
+        return personaje.poderBase()
+    }
+}
+
+
+
+
+object invocacion {      //chequear que el artefacto del castillo no sufre ningún efecto por la batalla
+
+    method poderPelea(personaje){
+        return personaje.artefactoMasPoderoso().poderPelea(personaje)  //asegurarse que todos los personajes sepan su artefacto mas poderoso
+    }
+}
 
 
 
@@ -183,3 +268,6 @@ object castillo {
         return almacen
     }
 }
+
+
+//ME QUEDÉ EN 2.2, TENGO QUE HACER LOS TESTS.
