@@ -1,3 +1,126 @@
 import rolando.*
 describe "Erethia" {
+
+    test "la mochila de rolando esta vacia" {
+        assert.that(rolando.mochila().size() == 0)
+    }
+
+    test "rolando encuentra un objeto y lo recolecta"{
+        rolando.encontrarArtefacto(espada)
+        assert.equals([espada], rolando.mochila())
+    }
+
+    test "rolando encuentra un objeto y no lo puede recolectar"{
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(collar)
+        assert.throwsException({rolando.encontrarArtefacto(armadura)})
+    }
+
+    test "rolando encuentra objetos"{
+        assert.that(rolando.mochila().size() == 0)
+        rolando.encontrarArtefacto(espada)
+        assert.equals([espada], rolando.mochila())
+        rolando.encontrarArtefacto(libro)
+        assert.equals([espada, libro], rolando.mochila())
+        rolando.encontrarArtefacto(collar)
+        assert.equals([espada, libro], rolando.mochila())
+    }
+
+
+
+    test "rolando encuentra objetos y llega a casa" {
+        rolando.encontrarArtefacto(espada)
+        assert.equals([espada], rolando.mochila())
+        rolando.encontrarArtefacto(libro)
+        assert.equals([espada, libro], rolando.mochila())
+        rolando.llegarAHogar()
+        assert.that(rolando.mochila().size() == 0)
+        assert.equals([espada, libro], castillo.almacen())
+        rolando.encontrarArtefacto(collar)
+        assert.equals([collar], rolando.mochila())
+        rolando.llegarAHogar()
+        assert.that(rolando.mochila().size() == 0)
+        assert.equals([espada, libro, collar], castillo.almacen())
+    }
+
+
+
+
+    test "los artefactos de rolando"{
+        rolando.encontrarArtefacto(collar)
+        rolando.encontrarArtefacto(espada)
+        rolando.llegarAHogar()
+        rolando.encontrarArtefacto(armadura)
+        assert.equals([collar, espada], castillo.almacen())
+        assert.equals([armadura], rolando.mochila())
+        assert.that(rolando.posesiones().size() == 3)
+        assert.equals([collar, espada, armadura], rolando.posesiones())
+        assert.notThat(rolando.poseeArtefacto(libro))
+    }
+
+
+
+    test "la historia de los encuentros con los artefactos de rolando" {
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(libro)
+        rolando.encontrarArtefacto(collar)
+        rolando.llegarAHogar()
+        rolando.encontrarArtefacto(armadura)
+        rolando.encontrarArtefacto(collar)
+        assert.equals([espada, libro, collar, armadura, collar], rolando.historialDeEncuentros())
+    }
+
+
+
+
+    test "poder de pelea artefactos sin batallas"{
+        assert.equals(5, espada.poderPelea(rolando))
+        assert.equals(6, armadura.poderPelea(rolando))
+        assert.equals(3, collar.poderPelea(rolando))
+    }
+
+
+    test "el poder de pelea de rolando"{
+        assert.equals(5, rolando.poderBase())
+        rolando.capacidadMochila(3)
+        assert.equals(3, rolando.capacidadMochila())
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(armadura)
+        rolando.encontrarArtefacto(collar)
+        assert.equals(19, rolando.poderPelea())
+    }
+
+
+
+    test "las batallas de rolando" {
+        assert.equals(5, rolando.poderBase())
+        rolando.capacidadMochila(3)
+        assert.equals(3, rolando.capacidadMochila())
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(armadura)
+        rolando.encontrarArtefacto(collar)
+        assert.equals(19, rolando.poderPelea())
+        // primera batalla
+        rolando.pelear()
+        assert.equals(6, rolando.poderBase())
+        assert.equals(1, espada.vecesUsado())
+        assert.equals(1, collar.vecesUsado())
+        assert.equals(1, armadura.vecesUsado())
+        assert.equals(3, espada.poderPelea(rolando))
+        assert.equals(6, armadura.poderPelea(rolando))
+        assert.equals(3, collar.poderPelea(rolando))
+        //segunda batalla
+        rolando.pelear()
+        assert.equals(7, rolando.poderBase())
+        assert.equals(3.5, espada.poderPelea(rolando))
+        assert.equals(6, armadura.poderPelea(rolando))
+        assert.equals(5, collar.poderPelea(rolando))
+        //tercera batalla
+        rolando.pelear()
+        assert.equals(8, rolando.poderBase())
+        assert.equals(4, espada.poderPelea(rolando))
+        assert.equals(6, armadura.poderPelea(rolando))
+        assert.equals(6, collar.poderPelea(rolando))
+    }
+
 }
