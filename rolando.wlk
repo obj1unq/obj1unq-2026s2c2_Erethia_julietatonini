@@ -59,6 +59,11 @@ object rolando {
     method poderBase(){
         return poderBase
     }
+
+
+    method poderBase(nuevoPoder){
+        poderBase = nuevoPoder
+    }
     
 
     method pelear(){
@@ -106,6 +111,10 @@ object rolando {
         return self.enemigosQuePuedeVencer().map({enemigo => enemigo.hogar()})
     }
 
+
+    method esPoderoso(){
+        return self.enemigosQuePuedeVencer().size() == enemigos.size()
+    }
 
 }
 

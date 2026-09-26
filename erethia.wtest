@@ -156,4 +156,29 @@ describe "Erethia" {
         assert.equals([palacio, torre], rolando.moradasConquistables())
     }
 
+
+
+    test "rolando no es poderoso"{
+        assert.equals(5, rolando.poderBase())
+        rolando.capacidadMochila(3)
+        assert.equals(3, rolando.capacidadMochila())
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(armadura)
+        rolando.encontrarArtefacto(collar)
+        assert.equals(19, rolando.poderPelea())
+        assert.notThat(rolando.esPoderoso())
+    }
+
+
+
+    test "rolando es poderoso"{
+        rolando.poderBase(10)
+        assert.equals(10, rolando.poderBase())
+        rolando.capacidadMochila(3)
+        assert.equals(3, rolando.capacidadMochila())
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(armadura)
+        rolando.encontrarArtefacto(collar)
+        assert.that(rolando.esPoderoso())
+    }
 }
