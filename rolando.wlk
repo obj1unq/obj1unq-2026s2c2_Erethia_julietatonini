@@ -14,6 +14,8 @@ object rolando {
 
     var capacidadMochila = 2
 
+    var enemigos = [caterina, archibaldo, astra]
+
     
     method encontrarArtefacto(artefacto){
         historialDeEncuentros.add(artefacto)
@@ -92,6 +94,18 @@ object rolando {
     method poseeArtefactoEncima(artefacto){
         return self.mochila().contains(artefacto)
     }
+
+
+
+    method enemigosQuePuedeVencer(){
+        return enemigos.filter({enemigo => self.poderPelea() > enemigo.poderPelea()})
+    }
+
+
+    method moradasConquistables(){
+        return self.enemigosQuePuedeVencer().map({enemigo => enemigo.hogar()})
+    }
+
 
 }
 
@@ -275,4 +289,85 @@ object castillo {
 }
 
 
-//ME QUEDÉ EN 2.2, TENGO QUE HACER LOS TESTS.
+
+
+
+
+object caterina {
+
+    var poderPelea = 28 
+
+    const hogar = fortaleza 
+
+
+    method poderPelea(){
+        return poderPelea
+    }
+
+
+    method hogar(){
+        return hogar
+    }
+}
+
+
+
+
+object archibaldo {
+
+    var poderPelea = 16
+
+    const hogar = palacio
+
+
+
+    method poderPelea(){
+        return poderPelea
+   }
+
+
+   method hogar(){
+        return hogar
+    }
+}
+
+
+
+
+
+object astra {
+
+    var poderPelea = 14
+
+    const hogar =  torre
+
+
+    method poderPelea(){
+        return poderPelea
+    }
+
+
+    method hogar(){
+        return hogar
+    }
+}
+
+
+
+object fortaleza {
+
+}
+
+
+
+
+object palacio {
+
+}|
+
+
+
+
+object torre {
+
+}

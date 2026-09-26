@@ -141,4 +141,19 @@ describe "Erethia" {
         assert.equals(0, libro.poderPelea(rolando))
     }
 
+
+
+
+    test "enemigos que vence y moradas que conquista"{
+        assert.equals(5, rolando.poderBase())
+        rolando.capacidadMochila(3)
+        assert.equals(3, rolando.capacidadMochila())
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(armadura)
+        rolando.encontrarArtefacto(collar)
+        assert.equals(19, rolando.poderPelea())
+        assert.equals([archibaldo, astra], rolando.enemigosQuePuedeVencer())
+        assert.equals([palacio, torre], rolando.moradasConquistables())
+    }
+
 }
