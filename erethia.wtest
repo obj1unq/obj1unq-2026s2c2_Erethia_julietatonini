@@ -123,4 +123,22 @@ describe "Erethia" {
         assert.equals(6, collar.poderPelea(rolando))
     }
 
+
+    test "Batallas con el libro de hechizos"{
+        rolando.encontrarArtefacto(espada)
+        rolando.llegarAHogar()
+        rolando.encontrarArtefacto(libro)
+        libro.agregarHechizo(bendicion)
+        assert.equals([bendicion], libro.hechizos())
+        assert.equals(4, libro.poderPelea(rolando))
+        rolando.pelear()
+        libro.agregarHechizo(invisibilidad)
+        assert.equals(6, libro.poderPelea(rolando))
+        rolando.pelear()
+        libro.agregarHechizo(invocacion)
+        assert.equals(7, libro.poderPelea(rolando))
+        rolando.pelear()
+        assert.equals(0, libro.poderPelea(rolando))
+    }
+
 }

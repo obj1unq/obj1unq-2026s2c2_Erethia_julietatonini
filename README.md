@@ -237,6 +237,14 @@ Los enemigos en Erethia que Rolando puede vencer son aquellos que tienen un pode
 Suponiendo que Rolando tiene 5 de base y capacidad de 3 artefactos. Entre sus artefactos se encuentran la *espada* (que le aporta 5), la *armadura* (aporta 6) y el *collar* (aporta 3). Su poder de batalla es 19, por lo tanto, puede vencer a Archibaldo y a Astra. 
 Las moradas conquistables son el palacio de mármol y la torre de marfil.
 
+
+
+
+
+
+
+
+
 ### 2.4 Poderoso
 
 Se considera que Rolando es poderoso en la tierra de Erethia si está en condiciones de vencer a todos los enemigos.

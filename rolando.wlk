@@ -162,7 +162,7 @@ object collar {
 
 object armadura {
 
-    var vecesUsado = 0                     // a la armadura no le importa cuantas veces fue usada, no se desgasta, pero el metodo de rolando pelar() incrementa en 1 las veces que el artefacto fue usadao, entonces asumo que este metodo tiene que estar aca, o si no lo pongo no hace nada? (y no rompe). RESPUESTA: Sí, rompe. Es comun a todos los objetos, asi que hay que ponerlo.
+    var vecesUsado = 0                     // a la armadura no le importa cuantas veces fue usada, no se desgasta, pero el metodo de rolando pelear() incrementa en 1 las veces que el artefacto fue usadao, entonces asumo que este metodo tiene que estar aca, o si no lo pongo no hace nada? (y no rompe). RESPUESTA: Sí, rompe. Es comun a todos los objetos, asi que hay que ponerlo.
 
     method poderPelea(personaje){          
         return 6
@@ -219,6 +219,11 @@ object libro {
         if (not hechizos.isEmpty()) {
             hechizos.remove(hechizos.first())
         }
+    }
+
+
+    method agregarHechizo(hechizo){
+        hechizos.add(hechizo)
     }
 }
 
