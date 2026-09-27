@@ -116,6 +116,16 @@ object rolando {
         return self.enemigosQuePuedeVencer().size() == enemigos.size()
     }
 
+
+
+    method poseeArtefactoFatalPara(enemigo){
+        return mochila.any({ artefacto => artefacto.poderPelea(self) > enemigo.poderPelea()})
+    }
+
+
+    method artefactoFatalPara(enemigo){
+        return mochila.find({ artefacto => artefacto.poderPelea(self) > enemigo.poderPelea()})
+    }
 }
 
 

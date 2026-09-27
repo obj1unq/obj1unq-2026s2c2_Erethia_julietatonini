@@ -279,6 +279,12 @@ Un artefacto fatal es aquel que le da a Rolando un poder de pelea superior al po
 Si Rolando tiene de base 15, la espada, la armadura y el collar, entonces cuenta con un artefacto fatal, que es la espada, para derrotar a Astra. Sin embargo, no cuenta con ningún artefacto fatal para derrotar a Caterina.
 
 
+
+
+
+
+
+
 ### 2.6 Reflexionar sobre los conceptos
 
 * Elegir un polimorfismo e indicar: 

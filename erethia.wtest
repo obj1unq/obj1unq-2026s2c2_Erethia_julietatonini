@@ -181,4 +181,19 @@ describe "Erethia" {
         rolando.encontrarArtefacto(collar)
         assert.that(rolando.esPoderoso())
     }
+
+
+
+    test "artefactos fatales"{
+        rolando.poderBase(15)
+        assert.equals(15, rolando.poderBase())
+        rolando.capacidadMochila(3)
+        assert.equals(3, rolando.capacidadMochila())
+        rolando.encontrarArtefacto(espada)
+        rolando.encontrarArtefacto(armadura)
+        rolando.encontrarArtefacto(collar)
+        assert.that(rolando.poseeArtefactoFatalPara(astra))
+        assert.equals(espada, rolando.artefactoFatalPara(astra))
+        assert.notThat(rolando.poseeArtefactoFatalPara(caterina))
+    }
 }
