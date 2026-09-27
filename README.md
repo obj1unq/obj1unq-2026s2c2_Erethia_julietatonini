@@ -12,7 +12,7 @@ En la tierra de Erethia vive Rolando, quien va recolectando distintos artefactos
 - Una espada del destino
 - Un libro de hechizos 
 - Un collar divino
-- Una armadura de acero valyrio
+- Una armadura de acero valyrio 
 
 En su mochila, Rolando puede llevar hasta 2 artefactos a la vez, pero se espera que a medida que se desarrolle el juego pueda incrementar esa capacidad. Entonces, cada vez que Rolando se encuentra con un artefacto, analiza si tiene capacidad para llevarlo, y en caso de que sea posible, lo recolecta. 
 
@@ -33,6 +33,11 @@ Desarrollar **tests** siguiendo el ejemplo.
  3. Rolando encuentra el collar divino pero no lo recolecta, ya que tiene la espada y el libro encima y la capacidad de su mochila es de 2. 
  4. Si se consultan los artefactos que tiene Rolando se obtienen la espada del destino y el libro de hechizos.
    
+
+
+
+
+
 
 ### 1.2 Castillo de piedra
 
@@ -56,6 +61,12 @@ Desarrollar **tests** siguiendo el ejemplo.
  3. Rolando llega al castillo de piedra nuevamente (deja el collar, con lo cual ahora el castillo tiene el collar, la espada y el libro)
  
 
+
+
+
+
+
+
 ### 1.3 Saber qué artefactos tiene Rolando
 
 Hay dos preguntas interesantes que debe poder contestar Rolando, por un lado cuáles son los artefactos que tiene en la mochila (ya resuelto en el punto inicial), pero también debe saber cuáles son todos los artefactos que él posee (sus posesiones) sin importar si los tiene en la mochila o en su castillo.
@@ -75,6 +86,15 @@ Desarrollar **tests** siguiendo el ejemplo.
 #### Ejemplo: 
 
 Suponiendo que en el castillo están el collar y la espada, y que Rolando tiene la armadura. Entonces las posesiones de Rolando son 3: el collar, la espada y la armadura. El libro no está entre sus posesiones.
+
+
+
+
+
+
+
+
+
  
 ### 1.4 Saber la historia de los encuentros con los artefactos.
  
@@ -101,6 +121,22 @@ Si consultamos la historia de encuentro con los artefactos debería ser:
  3. collar divino
  4. armadura de acero valyrio
  5. collar divino (¡nuevamente!)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  
 ## Parte 2 (mensajes con bloques) 
@@ -133,10 +169,19 @@ El poder de pelea de Rolando es el resultado de sumar su poder base (que inicial
  
 #### Ejemplo de batalla: 
 
-- Hacer que Rolando tenga 5 de base y capacidad de 3 artefactos. Entre sus artefactos se encuentran la *espada* (que le aporta 5), la *armadura* (aporta 6) y el *collar* (aporta 3).
+- Hacer que Rolando tenga 5 de base y capacidad de 3 artefactos. Entre sus artefactos se encuentran la *espada* (que le aporta 5), la *armadura* (aporta 6) y el *collar* (aporta 3) 
 - Luego de la primer batalla Rolando tiene 6 de base, la espada (aporta 6/2 = 3), la armadura (aporta 6) y el collar (aporta 3)  
 - Luego de la segunda batalla Rolando tiene 7 de base, la espada (aporta 7/2 = 3.5), la armadura 6 y el collar (3+2=5)
 - Luego de la tercera batalla Rolando tiene 8 de base, la espada (aporta 8/2=4), la armadura 6 y el collar (3+3=6)
+
+
+
+
+
+
+
+
+
 
 
 ### 2.2 Libro de hechizos
@@ -156,13 +201,19 @@ Si el libro de hechizos no tiene ningún hechizo, entonces su aporte es nulo.
 
 #### Ejemplo
 
-Suponer que Rolando (con 5 de poder de pelea) solo tiene consigo el libro de hechizos, mientras que en su castillo tiene 
-la espada, la armadura y el collar (todo sin haber sido usado antes). Además, suponer que el libro de hechizos contiene estos tres hechizos en este orden: bendición, invisibilidad e invocación.
+Suponer que Rolando (con 5 de poder de pelea) solo tiene consigo el libro de hechizos, mientras que en su castillo tiene la espada, la armadura y el collar (todo sin haber sido usado antes). Además, suponer que el libro de hechizos contiene estos tres hechizos en este orden: bendición, invisibilidad e invocación.
 
 - Antes de la primera batalla, el libro de hechizos aporta 4 de la bendición.
 - Luego de la primera batalla el libro de hechizos aporta 6 por la invisibilidad.
 - Luego de la segunda batalla, el libro aporta 7, ya que la invocación otorga los 7 puntos de la espada.
 - Luego de la tercera batalla, ya no quedan más hechizos, por lo que el aporte del libro es 0
+
+
+
+
+
+
+
 
 
 ### 2.3 Enemigos
@@ -182,9 +233,17 @@ Los enemigos en Erethia que Rolando puede vencer son aquellos que tienen un pode
 
 
 #### Ejemplo
- 
+
 Suponiendo que Rolando tiene 5 de base y capacidad de 3 artefactos. Entre sus artefactos se encuentran la *espada* (que le aporta 5), la *armadura* (aporta 6) y el *collar* (aporta 3). Su poder de batalla es 19, por lo tanto, puede vencer a Archibaldo y a Astra. 
 Las moradas conquistables son el palacio de mármol y la torre de marfil.
+
+
+
+
+
+
+
+
 
 ### 2.4 Poderoso
 
@@ -199,6 +258,13 @@ Se considera que Rolando es poderoso en la tierra de Erethia si está en condici
 
 En el caso de ejemplo anterio Rolando no es poderoso, pero si su poder de base se establece en 10, entonces sí lo es.
 
+
+
+
+
+
+
+
 ### 2.5 Artefacto fatal
 
 Un artefacto fatal es aquel que le da a Rolando un poder de pelea superior al poder de batalla de su enemigo. Es decir, un artefacto no es fatal por sí solo, sino que se calcula para un enemigo en particular.
@@ -211,6 +277,12 @@ Un artefacto fatal es aquel que le da a Rolando un poder de pelea superior al po
 #### Ejemplo
 
 Si Rolando tiene de base 15, la espada, la armadura y el collar, entonces cuenta con un artefacto fatal, que es la espada, para derrotar a Astra. Sin embargo, no cuenta con ningún artefacto fatal para derrotar a Caterina.
+
+
+
+
+
+
 
 
 ### 2.6 Reflexionar sobre los conceptos
